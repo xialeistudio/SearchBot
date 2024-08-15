@@ -26,7 +26,7 @@ python3 cli.py "What is the capital of France?" --bot=baidu --lang=english --ver
 To use the `search` function in your code:
 
 ```python
-from rag import search
+from src import search
 
 query = "What is the capital of France?"
 bot_name = "bing"

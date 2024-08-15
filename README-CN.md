@@ -23,7 +23,7 @@ python3 cli.py "法国的首都是哪里？" --bot=baidu --lang=chinese --verbos
 在代码中使用 `search` 函数：
 
 ```python
-from rag import search
+from src import search
 
 query = "法国的首都是哪里？"
 bot_name = "bing"
