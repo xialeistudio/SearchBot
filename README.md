@@ -17,16 +17,12 @@ context. It supports multiple search bots and languages, allowing for flexible a
 
 ## Example Usage
 
-To run the search from the command line:
-
-```sh
-python3 cli.py "What is the capital of France?" --bot=baidu --lang=english --verbose
+```bash
+pip install searchbot
 ```
 
-To use the `search` function in your code:
-
 ```python
-from src import search
+from searchbot.rag import search
 
 query = "What is the capital of France?"
 bot_name = "bing"

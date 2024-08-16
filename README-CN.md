@@ -13,17 +13,12 @@
 - 英文
 
 ## 示例用法
-
-从命令行运行搜索：
-
-```sh
-python3 cli.py "法国的首都是哪里？" --bot=baidu --lang=chinese --verbose
+```bash
+pip install searchbot
 ```
 
-在代码中使用 `search` 函数：
-
 ```python
-from src import search
+from searchbot.rag import search
 
 query = "法国的首都是哪里？"
 bot_name = "bing"

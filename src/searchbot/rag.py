@@ -2,9 +2,9 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_ollama import OllamaLLM
-from bot import make_bot
-from retriever import SearchBotRetriever
-import template
+from . import bot
+from . import retriever
+from . import template
 
 
 def search(query, bot_name='baidu', lang='chinese', verbose=False, llm=OllamaLLM(model='llama3.1', temperature=0.3)):
@@ -18,12 +18,12 @@ def search(query, bot_name='baidu', lang='chinese', verbose=False, llm=OllamaLLM
     prompt = ChatPromptTemplate.from_template(prompt_template)
 
     # Create the retriever
-    search_bot = make_bot(bot_name, verbose=verbose)  # Default to Baidu bot
-    retriever = SearchBotRetriever(bot=search_bot)
+    search_bot = bot.make_bot(bot_name, verbose=verbose)  # Default to Baidu bot
+    r = retriever.SearchBotRetriever(bot=search_bot)
 
     # Construct the RAG chain
     rag_chain = (
-            {"context": retriever, "question": RunnablePassthrough()}
+            {"context": r, "question": RunnablePassthrough()}
             | prompt
             | llm
             | StrOutputParser()

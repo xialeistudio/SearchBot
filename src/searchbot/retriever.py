@@ -3,11 +3,11 @@ from typing import Optional
 from langchain_core.runnables import Runnable, RunnableConfig
 from langchain_core.runnables.utils import Input, Output
 
-from bot import SearchBot
+from . import bot as botmodule
 
 
 class SearchBotRetriever(Runnable):
-    def __init__(self, bot: SearchBot):
+    def __init__(self, bot: botmodule.SearchBot):
         self.bot = bot
 
     def retrieve(self, query: str):
